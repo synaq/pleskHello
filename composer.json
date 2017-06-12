@@ -1,0 +1,27 @@
+{
+    "name": "synaq/plesk-hello",
+    "description": "Simple Hello World Plesk Extension POC",
+    "type": "library",
+    "require-dev": {
+        "plesk/pm-api-stubs": "^17.0"
+    },
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "willemv",
+            "email": "willemv@synaq.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "vendor-dir": "src/plib/vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "PleskExt\\SynaqPleskHello\\": [
+                "modules/docker/library/SynaqPleskHello/",
+                "src/plib/library/SynaqPleskHello/"
+            ]
+        }
+    }
+}
