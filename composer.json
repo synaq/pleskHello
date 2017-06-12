@@ -23,5 +23,12 @@
                 "src/plib/library/SynaqPleskHello/"
             ]
         }
+    },
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": [
+            "@clean",
+            "mkdir -p dist && zip -r dist/synaq-plesk-hello.zip composer.json composer.lock src/ -x '*vendor*'"
+        ]
     }
 }
