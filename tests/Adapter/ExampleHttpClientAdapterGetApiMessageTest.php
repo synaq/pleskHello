@@ -43,6 +43,16 @@ class ExampleHttpClientAdapterGetApiMessageTest extends \PHPUnit_Framework_TestC
         $this->client->shouldHaveReceived('get')->with('https://some-domain.com/api/configs/pleskHello.json');
     }
 
+    /**
+     * @test
+     */
+    public function acceptsAnyBaseUrlForTheApi()
+    {
+        $this->adapter = new ExampleHttpClientAdapter($this->client, 'https://any-domain.com/public-api/');
+        $this->adapter->getApiMessage();
+        $this->client->shouldHaveReceived('get')->with('https://any-domain.com/public-api/configs/pleskHello.json');
+    }
+
     protected function setUp()
     {
         $this->client = m::mock(Client::class);
