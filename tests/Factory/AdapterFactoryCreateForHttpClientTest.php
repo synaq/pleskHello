@@ -20,4 +20,14 @@ class AdapterFactoryCreateForHttpClientTest extends \PHPUnit_Framework_TestCase
         $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClient(new Client());
         $this->assertInstanceOf(\Modules_SynaqPleskHello_Factory_Adapter::class, $adapter);
     }
+
+    /**
+     * @test
+     */
+    public function returnsAdapterBoundToClientProvidedAsParameter()
+    {
+        $client = new Client();
+        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClient($client);
+        $this->assertEquals($client, $adapter->getClient());
+    }
 }
