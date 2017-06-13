@@ -37,7 +37,9 @@
         "clean": "rm -rf dist",
         "build": [
             "@clean",
-            "mkdir -p dist && zip -r dist/synaq-plesk-hello.zip composer.json composer.lock src/ -x '*vendor*'"
+            "@composer install -o --no-dev --prefer-dist",
+            "mkdir -p dist && cd src && zip -r ../dist/synaq-plesk-hello.zip * && cd ..",
+            "@composer install -o --prefer-dist"
         ]
     }
 }
