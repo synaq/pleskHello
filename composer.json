@@ -4,7 +4,8 @@
     "type": "library",
     "require-dev": {
         "plesk/pm-api-stubs": "^17.0",
-        "phpunit/phpunit": "^4.8"
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.9"
     },
     "license": "BSD",
     "authors": [

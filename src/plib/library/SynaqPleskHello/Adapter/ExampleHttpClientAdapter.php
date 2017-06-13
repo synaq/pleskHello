@@ -27,4 +27,9 @@ class ExampleHttpClientAdapter
     {
         return $this->client;
     }
+
+    public function getApiMessage()
+    {
+        $this->client->get(null);
+    }
 }
