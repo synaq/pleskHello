@@ -3,7 +3,8 @@
     "description": "Simple Hello World Plesk Extension POC",
     "type": "library",
     "require-dev": {
-        "plesk/pm-api-stubs": "^17.0"
+        "plesk/pm-api-stubs": "^17.0",
+        "phpunit/phpunit": "^4.8"
     },
     "license": "BSD",
     "authors": [
@@ -18,12 +19,10 @@
     "config": {
         "vendor-dir": "src/plib/vendor"
     },
-    "autoload": {
+    "autoload-dev": {
+        "classmap": ["src/plib/library/"],
         "psr-4": {
-            "PleskExt\\SynaqPleskHello\\": [
-                "modules/docker/library/SynaqPleskHello/",
-                "src/plib/library/SynaqPleskHello/"
-            ]
+            "PleskExt\\SynaqPleskHello\\Tests\\": "tests/"
         }
     },
     "scripts": {
