@@ -12,7 +12,9 @@
             "email": "willemv@synaq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "synaq/http-client": "1.0"
+    },
     "config": {
         "vendor-dir": "src/plib/vendor"
     },

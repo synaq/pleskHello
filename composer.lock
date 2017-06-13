@@ -4,8 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d3254434a0576b4f9a29ce6676c8825",
-    "packages": [],
+    "content-hash": "880c12d098ecee5caca534eede0558fa",
+    "packages": [
+        {
+            "name": "synaq/http-client",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/synaq/http-client.git",
+                "reference": "1976f36a0d6cab9324c858e43673517783bea935"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/synaq/http-client/zipball/1976f36a0d6cab9324c858e43673517783bea935",
+                "reference": "1976f36a0d6cab9324c858e43673517783bea935",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Synaq\\HttpClient\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2015-11-20T04:53:30+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "plesk/pm-api-stubs",
