@@ -32,9 +32,10 @@ class ExampleHttpClientAdapter
 
     public function getApiMessage()
     {
-        $this->client->get($this->baseUrl . 'configs/pleskHello.json');
+        $response = $this->client->get($this->baseUrl . 'configs/pleskHello.json');
+        $result = json_decode($response->getBody(), true);
 
-        return 'The message';
+        return $result['message'];
     }
 
     public function getBaseUrl()

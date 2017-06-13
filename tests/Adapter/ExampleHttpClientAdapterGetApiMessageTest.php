@@ -63,6 +63,15 @@ class ExampleHttpClientAdapterGetApiMessageTest extends \PHPUnit_Framework_TestC
         $this->assertEquals('The message', $this->adapter->getApiMessage());
     }
 
+    /**
+     * @test
+     */
+    public function acceptsAnyMessageFromTheApi()
+    {
+        $this->client->shouldReceive('get')->andReturn($this->httpOkayResponseWithMessage('Any message'));
+        $this->assertEquals('Any message', $this->adapter->getApiMessage());
+    }
+
     protected function setUp()
     {
         $this->client = m::mock(Client::class);
