@@ -19,10 +19,17 @@
     "config": {
         "vendor-dir": "src/plib/vendor"
     },
+    "autoload": {
+        "classmap": ["src/plib/library/"],
+        "psr-4": {
+            "PleskExt\\SynaqPleskHello\\": "src/library/SynaqPleskHello"
+        }
+    },
     "autoload-dev": {
         "classmap": ["src/plib/library/"],
         "psr-4": {
-            "PleskExt\\SynaqPleskHello\\Tests\\": "tests/"
+            "PleskExt\\SynaqPleskHello\\Tests\\": "tests/",
+            "PleskExt\\SynaqPleskHello\\": "src/library/SynaqPleskHello"
         }
     },
     "scripts": {

@@ -8,6 +8,7 @@
 
 namespace PleskExt\SynaqPleskHello\Tests\Factory;
 
+use PleskExt\SynaqPleskHello\Adapter\ExampleHttpClientAdapter;
 use Synaq\HttpClient\Client;
 
 class AdapterFactoryCreateForHttpClientTest extends \PHPUnit_Framework_TestCase
@@ -18,7 +19,7 @@ class AdapterFactoryCreateForHttpClientTest extends \PHPUnit_Framework_TestCase
     public function returnsAdapter()
     {
         $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClient(new Client());
-        $this->assertInstanceOf(\Modules_SynaqPleskHello_Factory_Adapter::class, $adapter);
+        $this->assertInstanceOf(ExampleHttpClientAdapter::class, $adapter);
     }
 
     /**
