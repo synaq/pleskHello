@@ -17,10 +17,12 @@ class ExampleHttpClientAdapter
      * @var Client
      */
     private $client;
+    private $baseUrl;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client, $baseUrl)
     {
         $this->client = $client;
+        $this->baseUrl = $baseUrl;
     }
 
     public function getClient()
@@ -30,6 +32,11 @@ class ExampleHttpClientAdapter
 
     public function getApiMessage()
     {
-        $this->client->get(null);
+        $this->client->get('https://some-domain.com/api/configs/pleskHello.json');
+    }
+
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
     }
 }

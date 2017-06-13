@@ -18,7 +18,7 @@ class AdapterFactoryCreateForHttpClientTest extends \PHPUnit_Framework_TestCase
      */
     public function returnsAdapter()
     {
-        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClient(new Client());
+        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClientOnBaseUrl(new Client(), null);
         $this->assertInstanceOf(ExampleHttpClientAdapter::class, $adapter);
     }
 
@@ -28,7 +28,16 @@ class AdapterFactoryCreateForHttpClientTest extends \PHPUnit_Framework_TestCase
     public function returnsAdapterBoundToClientProvidedAsParameter()
     {
         $client = new Client();
-        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClient($client);
+        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClientOnBaseUrl($client, null);
         $this->assertEquals($client, $adapter->getClient());
+    }
+
+    /**
+     * @test
+     */
+    public function returnsAdapterWithSuppliedBaseUrl()
+    {
+        $adapter = \Modules_SynaqPleskHello_Factory_Adapter::createForHttpClientOnBaseUrl(new Client(), 'https://some-domain.com/api/v1');
+        $this->assertEquals('https://some-domain.com/api/v1', $adapter->getBaseUrl());
     }
 }

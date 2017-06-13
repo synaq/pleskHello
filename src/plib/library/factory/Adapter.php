@@ -10,8 +10,8 @@ require_once __DIR__ . '/../../vendor/composer/autoload_real.php';
 
 class Modules_SynaqPleskHello_Factory_Adapter
 {
-    public static function createForHttpClient(\Synaq\HttpClient\Client $client)
+    public static function createForHttpClientOnBaseUrl(\Synaq\HttpClient\Client $client, $baseUrl)
     {
-        return new \PleskExt\SynaqPleskHello\Adapter\ExampleHttpClientAdapter($client);
+        return new \PleskExt\SynaqPleskHello\Adapter\ExampleHttpClientAdapter($client, $baseUrl);
     }
 }

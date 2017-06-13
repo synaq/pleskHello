@@ -33,11 +33,21 @@ class ExampleHttpClientAdapterGetApiMessageTest extends \PHPUnit_Framework_TestC
         $this->client->shouldHaveReceived('get')->once();
     }
 
+    /**
+     * @test
+     */
+    public function callsGetOnThePleskHelloWorldConfigurationCategoryUnderTheSpecifiedBaseUrl()
+    {
+        $this->adapter = new ExampleHttpClientAdapter($this->client, 'https://some-domain.com/api/');
+        $this->adapter->getApiMessage();
+        $this->client->shouldHaveReceived('get')->with('https://some-domain.com/api/configs/pleskHello.json');
+    }
+
     protected function setUp()
     {
         $this->client = m::mock(Client::class);
         $this->client->shouldIgnoreMissing();
 
-        $this->adapter = new ExampleHttpClientAdapter($this->client);
+        $this->adapter = new ExampleHttpClientAdapter($this->client, null);
     }
 }
