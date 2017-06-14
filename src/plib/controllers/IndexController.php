@@ -14,7 +14,7 @@ class IndexController extends pm_Controller_Action
         $client = Modules_SynaqPleskHello_Factory_Client::create();
         $this->adapter = Modules_SynaqPleskHello_Factory_Adapter::createForHttpClientOnBaseUrl(
             $client,
-            'https://sta-q.synaq.com/public-api/v1'
+            'https://sta-q.synaq.com/public-api/v1/'
         );
 
         /** @noinspection PhpUndefinedFieldInspection */
