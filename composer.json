@@ -3,7 +3,9 @@
     "description": "Simple Hello World Plesk Extension POC",
     "type": "library",
     "require-dev": {
-        "plesk/pm-api-stubs": "^17.0"
+        "plesk/pm-api-stubs": "^17.0",
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.9"
     },
     "license": "BSD",
     "authors": [
@@ -12,23 +14,31 @@
             "email": "willemv@synaq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "synaq/http-client": "1.0"
+    },
     "config": {
         "vendor-dir": "src/plib/vendor"
     },
     "autoload": {
         "psr-4": {
-            "PleskExt\\SynaqPleskHello\\": [
-                "modules/docker/library/SynaqPleskHello/",
-                "src/plib/library/SynaqPleskHello/"
-            ]
+            "PleskExt\\SynaqPleskHello\\": "modules/synaq-plesk-hello/library/SynaqPleskHello"
+        }
+    },
+    "autoload-dev": {
+        "classmap": ["src/plib/library/"],
+        "psr-4": {
+            "PleskExt\\SynaqPleskHello\\Tests\\": "tests/",
+            "PleskExt\\SynaqPleskHello\\": "src/library/SynaqPleskHello"
         }
     },
     "scripts": {
         "clean": "rm -rf dist",
         "build": [
             "@clean",
-            "mkdir -p dist && zip -r dist/synaq-plesk-hello.zip composer.json composer.lock src/ -x '*vendor*'"
+            "@composer install -o --no-dev --prefer-dist",
+            "mkdir -p dist && cd src && zip -r ../dist/synaq-plesk-hello.zip * && cd ..",
+            "@composer install -o --prefer-dist"
         ]
     }
 }
