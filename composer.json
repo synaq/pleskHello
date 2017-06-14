@@ -21,9 +21,8 @@
         "vendor-dir": "src/plib/vendor"
     },
     "autoload": {
-        "classmap": ["src/plib/library/"],
         "psr-4": {
-            "PleskExt\\SynaqPleskHello\\": "src/library/SynaqPleskHello"
+            "PleskExt\\SynaqPleskHello\\": "modules/synaq-plesk-hello/library/SynaqPleskHello"
         }
     },
     "autoload-dev": {
